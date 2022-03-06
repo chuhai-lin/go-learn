@@ -1,0 +1,19 @@
+syntax = "proto3";  // 指定proto版本
+package hello;  // 指定默认包名
+
+// 指定golang包名,
+// 如果golang包名跟proto包名不一致的话才需要指定，否则可以省略
+// option go_package = "github.com/linchuhai/grpc/proto/hello";
+
+// 定义Hello RPC服务
+service Hello {
+  rpc sayHello(HelloRequest) returns (HelloResponse) {};
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
